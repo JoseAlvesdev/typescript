@@ -78,3 +78,30 @@ curso3 = {
 console.log(curso1);
 console.log(curso2);
 console.log(curso3);
+
+/*
+Sobrescrevendo com &:
+Se você precisar combinar os atributos de uma interface com novos tipos 
+ou modificações, você pode usar a interseção de tipos (&).
+*/
+
+interface Pessoa {
+    nome: string;
+    idade: number;
+  }
+  
+  interface Funcionario extends Pessoa {
+    salario: number;
+  }
+  
+  type FuncionarioModificado = Pessoa & {
+    salario: number;
+    idade: string; // Sobrescrevendo a idade para ser uma string
+  };
+  
+  const funcionario: FuncionarioModificado = {
+    nome: 'Carlos',
+    idade: '30', // Aqui idade é uma string, como esperado
+    salario: 5000,
+  };
+  
